@@ -1,0 +1,52 @@
+### 344. [Reverse String](https://leetcode.com/problems/reverse-string/#/description)
+
+>Write a function that takes a string as input and returns the string reversed.  
+
+>Example:  
+>Given s = "hello", return "olleh". 
+-------------------------------------------------------------------------------------
+#### Java
+```
+public class Solution {
+        public String reverseString(String s) {
+            Stack <String> sk = new Stack <String>();
+            StringBuffer result = new StringBuffer();
+            for (int i = 0; i < s.length(); i++) {  
+                sk.push(String.valueOf(s.charAt(i)));
+            }
+            for (int i = 0; i < s.length(); i++) {  
+                result.append(sk.pop());
+            }
+
+            return result.toString();
+        }
+  }
+
+//java中String的两种初始化方法 http://blog.csdn.net/cainiao123hack/article/details/7801179
+//java字符串数组初始化和赋值 http://blog.csdn.net/u013337743/article/details/45157529
+//堆与栈的介绍、区别 http://blog.csdn.net/emira_j/article/details/51232611
+//Java String.charAt()方法 http://www.yiibai.com/javalang/string_charat.html
+//java 栈类的用法 http://haoran-10.iteye.com/blog/1490811
+//Java String, StringBuffer和StringBuilder实例 http://blog.csdn.net/kingzone_2008/article/details/9220691 
+
+/**public class Solution {
+    public String reverseString(String s) {
+        char[] word = s.toCharArray();
+        int i = 0;
+        int j = s.length() - 1;
+        while (i < j) {
+            char temp = word[i];
+            word[i] = word[j];
+            word[j] = temp;
+            i++;
+            j--;
+        }
+        return new String(word);
+    }
+}
+
+public class Solution {
+    public String reverseString(String s) {
+        return new StringBuilder(s).reverse().toString();
+    }
+**/
