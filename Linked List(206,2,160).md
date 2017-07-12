@@ -94,3 +94,107 @@ public class Solution {
     }
 }
 ```
+### 160. [Intersection of Two Linked Lists](https://leetcode.com/problems/intersection-of-two-linked-lists/#/description)
+>Write a program to find the node at which the intersection of two singly linked lists begins.
+----
+### Java
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        ListNode p1 = headA, p2 = headB;
+        int len1 = 0, len2 = 0;
+        while (p1 != null) {
+            p1 = p1.next;
+            len1++;
+        }
+        while (p2 != null) {
+            p2 = p2.next;
+            len2++;
+        }
+        p1 = headA;
+        p2 = headB;
+        if (len1 > len2) {
+            for (int i = 0;i < len1 - len2; i++) {
+                p1 = p1.next;
+            }
+        } else {
+            for (int i = 0;i < len2 - len1; i++) {
+                p2 = p2.next;
+            }
+        }
+        while (p1 != p2) {
+            p1 = p1.next;
+            p2 = p2.next;
+        }
+        return p1;    
+    }
+}
+
+/*
+Solution 1:
+1, Get the length of the two lists.
+
+2, Align them to the same start point.
+
+3, Move them together until finding the intersection point, or the end null
+
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    int lenA = length(headA), lenB = length(headB);
+    // move headA and headB to the same start point
+    while (lenA > lenB) {
+        headA = headA.next;
+        lenA--;
+    }
+    while (lenA < lenB) {
+        headB = headB.next;
+        lenB--;
+    }
+    // find the intersection until end
+    while (headA != headB) {
+        headA = headA.next;
+        headB = headB.next;
+    }
+    return headA;
+}
+
+private int length(ListNode node) {
+    int length = 0;
+    while (node != null) {
+        node = node.next;
+        length++;
+    }
+    return length;
+}
+
+Solution 2:
+public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+    //boundary check
+    if(headA == null || headB == null) return null;
+    
+    ListNode a = headA;
+    ListNode b = headB;
+    
+    //if a & b have different len, then we will stop the loop after second iteration
+    while( a != b){
+    	//for the end of first iteration, we just reset the pointer to the head of another linkedlist
+        a = a == null? headB : a.next;
+        b = b == null? headA : b.next;    
+    }
+    
+    return a;
+}
+You can prove that: say A length = a + c, B length = b + c, after switching pointer, pointer A will move another b + c steps, pointer B will move a + c more steps, since a + c + b + c = b + c + a + c, it does not matter what value c is. Pointer A and B must meet after a + c + b (b + c + a) steps. If c == 0, they meet at NULL.
+Thanks, hpplayer. This solution is very smart.
+*/
+```
