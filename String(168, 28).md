@@ -78,7 +78,8 @@ public int strStr(String haystack, String needle) {
 一种是public String substring(int beginIndex)
 返回一个新的字符串，它是此字符串的一个子字符串。该子字符串从指定索引处的字符开始，直到此字符串末尾。
 另一种是public String substring(int beginIndex, int endIndex)
-返回一个新字符串，它是此字符串的一个子字符串。该子字符串从指定的 beginIndex 处开始，直到索引 endIndex - 1 处的字符。因此，该子字符串的长度为 endIndex-beginIndex。 
+返回一个新字符串，它是此字符串的一个子字符串。该子字符串从指定的 beginIndex 处开始，直到索引 endIndex - 1 处的字符。
+因此，该子字符串的长度为 endIndex-beginIndex。 
 3. java中length,length(),size()区别: http://www.cnblogs.com/hnrainll/archive/2012/10/29/2744492.html
     (1) java中的length属性是针对数组说的,比如说你声明了一个数组,想知道这个数组的长度则用到了length这个属性.
     (2) java中的length()方法是针对字符串String说的,如果想看这个字符串的长度则用到length()这个方法.
