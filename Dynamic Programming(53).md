@@ -7,21 +7,23 @@
 ### Java
 ```
 public class Solution {
-    // public int maxSubArray(int[] nums) {
-    //     int max = nums[0];
-    //     int sum = 0;
-    //     int j = 0;
-    //     for(int i = 0; i < nums.length; i++){
-    //         sum = sum + nums[i];
-    //         if(sum >= max) max = sum;
-    //         else{
-    //             if(sum<nums[i])
-    //             sum = nums[i];
-    //         } 
-    //     }
-    //     return max;
-    // }
-    public int maxSubArray(int[] nums) {
+     public int maxSubArray(int[] nums) {
+        int max = nums[0];
+        int sum = 0;
+        int j = 0;
+        for(int i = 0; i < nums.length; i++){
+            sum = sum + nums[i];
+            if(sum >= max) max = sum;
+           // else{
+                if(sum<0)
+                sum = 0;
+           // } 
+        }
+        return max;
+    } 
+}
+/*
+ public int maxSubArray(int[] nums) {
     int currMax=nums[0],max=nums[0];
     for(int i=1;i<nums.length;i++){
         currMax=Math.max(currMax+nums[i],nums[i]);
@@ -29,6 +31,6 @@ public class Solution {
     }
     return max;
 }
-}
+*/
 ```
 //[using DP Algorithm](https://discuss.leetcode.com/topic/6413/dp-solution-some-thoughts)
