@@ -198,3 +198,44 @@ You can prove that: say A length = a + c, B length = b + c, after switching poin
 Thanks, hpplayer. This solution is very smart.
 */
 ```
+### 83. [Remove Duplicates from Sorted List](https://leetcode.com/problems/remove-duplicates-from-sorted-list/#/description)
+> Given a sorted linked list, delete all duplicates such that each element appear only once.
+
+>For example,  
+>Given 1->1->2, return 1->2.  
+>Given 1->1->2->3->3, return 1->2->3.   
+----
+### Java
+```
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode current = head;
+        while(current != null){
+            if(current.next == null) break;
+            if(current.val == current.next.val){
+                current.next = current.next.next;
+            }else{//[1,1,1]would output [1,1] not [1] without else
+                current = current.next;
+            }
+            
+        }
+        return head;
+    }
+}
+//sorted, so the same element must be continue.
+/*
+public ListNode deleteDuplicates(ListNode head) {
+        if(head == null || head.next == null)return head;
+        head.next = deleteDuplicates(head.next);
+        return head.val == head.next.val ? head.next : head;
+}
+*/
+```
