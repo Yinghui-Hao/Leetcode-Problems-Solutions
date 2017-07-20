@@ -47,6 +47,19 @@ public int maxSubArray(int[] A) {
         
         return max;
 }
+
+Solution 3: 
+When we are talking about DP, the first problem comes out to our mind should be: what's the statement of the sub-problem, 
+whose format should satisfy that if we've solved a sub-problem, it would be helpful for solving the next-step sub-problem, 
+and, thus, eventually helpful for solving the original problem.
+
+Here is the sub-problem we state: denote int_local_max[i] as the max-sub-array-sum that ends with nums[i]. 
+The relationship between the two steps is simple: int_local_max[i + 1] = max (int_local_max[i] + nums[i + 1], nums[i + 1])
+or int_local_max[i + 1] = (int_local_max[i] > 0) ? int_local_max[i] + nums[i + 1] : nums[i + 1].
+Now, all we have to do is to scan through the array, and find which int_local_max[i] is the maximum of all the int_local_maxs.
+dp[i] = A[i] + (dp[i - 1] > 0 ? dp[i - 1] : 0);
+can also be written as:
+dp[i] = Math.max(A[i] + dp[i - 1] , A[i]);
 */
 ```
 //[using DP Algorithm](https://discuss.leetcode.com/topic/6413/dp-solution-some-thoughts)
