@@ -30,5 +30,5 @@ public class Solution {
     return max;
 }
 }
-//using DP Algorithm
 ```
+//[using DP Algorithm](https://discuss.leetcode.com/topic/6413/dp-solution-some-thoughts)
