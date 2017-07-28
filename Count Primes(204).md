@@ -10,8 +10,7 @@ public class Solution {
 }
 /*
 质数（prime number）又称素数，有无限个。一个大于1的自然数，除了1和它本身外，不能被其他自然数整除，换句话说就是该数除了
-1和它本身以外不再有其他的因数；
-否则称为合数。最小的质数是2。
+1和它本身以外不再有其他的因数；否则称为合数。最小的质数是2。
 自然数（natural number）0,1,2,3...
 
 Solution: 埃拉托斯特尼筛法Sieve of Eratosthenes  http://www.cnblogs.com/grandyang/p/4462810.html
